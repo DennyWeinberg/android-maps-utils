@@ -193,7 +193,7 @@ public class MarkerManager implements
                 mAllMarkers.remove(marker);
 				try {
 					marker.remove();
-				} catch(IllegalStateException e) {
+				} catch(IllegalArgumentException e) {
 					e.printStackTrace();
 				}
                 return true;
