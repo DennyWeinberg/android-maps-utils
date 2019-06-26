@@ -191,7 +191,11 @@ public class MarkerManager implements
         public boolean remove(Marker marker) {
             if (mMarkers.remove(marker)) {
                 mAllMarkers.remove(marker);
-                marker.remove();
+				try {
+					marker.remove();
+				} catch(IllegalStateException e) {
+					e.printStackTrace();
+				}
                 return true;
             }
             return false;
